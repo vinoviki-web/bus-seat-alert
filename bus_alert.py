@@ -62,7 +62,7 @@ def check_bus():
         print(f"Page loaded, length: {len(text)} chars")
         
         # Check for seat numbers (e.g., "27 seats", "33 seats") 
-        seats_match = re.findall(r'>\(\d+\)\s*seats?<' , text)
+        seats_match = re.findall(r'>(\d+)\s*seats?<', text)
         if seats_match:
             total_seats = sum(int(s) for s in seats_match)
             return True, f"{total_seats} seats available across {len(seats_match)} bus(es)!"
@@ -134,7 +134,7 @@ while True:
         available, message = check_bus()
         
         if available:
-            alert_msg = f"🚍 {message} Harur → Chennai on 21 Jan 2026. Check immediately!"
+            alert_msg = f"🚍 {message} Harur → Chennai on 19 Jan 2026. Check immediately!" 
             send_all_alerts(alert_msg)
             print("Alert sent!", message)
             break
@@ -144,3 +144,4 @@ while True:
         print("Error:", e)
 
     time.sleep(CHECK_INTERVAL)
+
