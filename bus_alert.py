@@ -144,4 +144,6 @@ while True:
         print("Error:", e)
 
     time.sleep(CHECK_INTERVAL)
+    
+    # Adding a comment
 
